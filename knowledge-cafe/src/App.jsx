@@ -1,15 +1,29 @@
+import { useState } from "react";
 import "./App.css";
 import Blogs from "./components/Blogs/Blogs";
 import BookMark from "./components/BookMark/BookMark";
 import Header from "./components/Header/Header";
 
 function App() {
+  const [bookmark,setmark]=useState([])
+  const [sepentTime,setSepentTime]=useState(0)
+
+  const sepentTimeHendeler=time=>{
+    const newtime=sepentTime+time
+    setSepentTime(newtime)
+  }
+
+  const hendleBookMark=mark=>{
+    const newMark=[...bookmark,mark]
+    setmark(newMark)
+  
+  }
   return (
     <>
-      <Header></Header>
-      <main className="md:flex justify-between mx-4">
-        <Blogs></Blogs>
-        <BookMark></BookMark>
+      <Header className="max-w-7xl mx-auto"></Header>
+      <main className="md:flex justify-between gap-6 max-w-7xl mx-auto">
+        <Blogs hendleBookMark={hendleBookMark} sepentTimeHendeler={sepentTimeHendeler}></Blogs>
+        <BookMark bookmark={bookmark} sepentTime={sepentTime}></BookMark>
       </main>
     </>
   );
