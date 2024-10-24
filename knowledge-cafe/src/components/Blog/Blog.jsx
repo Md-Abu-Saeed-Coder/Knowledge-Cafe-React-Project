@@ -36,7 +36,7 @@ const Blog = ({ blog ,hendleBookMark,sepentTimeHendeler}) => {
         <h2 className="text-[40px] font-bold">{title}</h2>
       </div>
       <p><a href="">{hashtag}</a></p>
-      <button onClick={()=>sepentTimeHendeler(reading_time)} className="mt-3 underline text-fuchsia-800 text-xl">Mark as read</button>
+      <button onClick={()=>sepentTimeHendeler(id,reading_time)} className="mt-3 underline text-fuchsia-800 text-xl">Mark as read</button>
     </div>
   );
 };

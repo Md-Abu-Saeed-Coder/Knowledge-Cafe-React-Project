@@ -8,9 +8,12 @@ function App() {
   const [bookmark,setmark]=useState([])
   const [sepentTime,setSepentTime]=useState(0)
 
-  const sepentTimeHendeler=time=>{
+  const sepentTimeHendeler=(id,time)=>{
     const newtime=sepentTime+time
     setSepentTime(newtime)
+    // Remove the BooK Mark 
+    const remaningBookMark=bookmark.filter(book=>book.id !==id)
+    setmark(remaningBookMark)
   }
 
   const hendleBookMark=mark=>{
